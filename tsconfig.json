@@ -1,0 +1,32 @@
+{
+    "include": [
+        "src/*.ts"
+    ],
+    "compilerOptions": {
+        "strict": true,
+		"alwaysStrict": true,
+		"target": "ES2020",
+		"module": "ES2020",
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"removeComments": true,
+		"allowUnusedLabels": false,
+		"strictNullChecks": true,
+		"strictBindCallApply": true,
+		"sourceMap": true,
+		"downlevelIteration": true,
+        "moduleResolution": "node",
+        "paths": {
+            "https://unpkg.com/browse/sort-nodes@0.1.1/dist/index.js": [
+                "./node_modules/sort-nodes"
+            ]
+		},
+		"outDir": "./dist/",
+		"inlineSourceMap": false,
+		"declaration": true
+    }
+}
