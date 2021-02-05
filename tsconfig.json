@@ -20,13 +20,7 @@
 		"sourceMap": true,
 		"downlevelIteration": true,
         "moduleResolution": "node",
-        "paths": {
-            "https://unpkg.com/browse/sort-nodes@0.1.1/dist/index.js": [
-                "./node_modules/sort-nodes"
-            ]
-		},
-		"outDir": "./dist/",
-		"inlineSourceMap": false,
-		"declaration": true
+		"declaration": true,
+		"stripInternal": true
     }
 }
