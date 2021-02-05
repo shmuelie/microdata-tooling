@@ -4,7 +4,7 @@
         "name": "Shmueli Englard"
     },
     "bugs": {
-        "url": "https://github.com/SamuelEnglard/shmuelie.englard.net/issues"
+        "url": "https://github.com/SamuelEnglard/microdata-tooling/issues"
     },
     "devDependencies": {
         "@types/mocha": "5.2.7",
@@ -23,13 +23,13 @@
         "terser": "5.5.1",
         "typescript": "4.1.3"
     },
-    "description": "Micro Data tooling",
+    "description": "Provides tooling to help using micro data from TypeScript/JavaScript.",
     "license": "MIT",
     "name": "microdata-tooling",
     "private": false,
     "repository": {
         "type": "git",
-        "url": "https://github.com/SamuelEnglard/shmuelie.englard.net"
+        "url": "https://github.com/SamuelEnglard/microdata-tooling.git"
     },
     "version": "1.0.0",
     "scripts": {
@@ -38,5 +38,6 @@
     },
     "main": "./dist/index.min.js",
     "types": "./dist/index.d.ts",
-    "type": "module"
+    "type": "module",
+    "homepage": "https://github.com/SamuelEnglard/microdata-tooling"
 }
