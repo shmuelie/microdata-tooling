@@ -15,7 +15,7 @@ gulp.task("ts-build", function () {
     const js = tsProject.src().pipe(sourcemaps.init()).pipe(tsProject());
     return merge([
         js.js.
-        //pipe(terser()).
+        pipe(terser()).
         pipe(sourcemaps.write(".", { includeContent: false, sourceRoot: "../src" })).pipe(gulp.dest("dist")),
         js.dts.pipe(gulp.dest("dist"))
     ]);
