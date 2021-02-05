@@ -21,7 +21,7 @@ function isArray<T>(obj: any): obj is T[] {
  * @param element The @see Element to test.
  * @param tag The HTML Element tag to test for.
  */
-function isElement2<T extends keyof HTMLElementTagNameMap>(element: Element, tag: T): element is HTMLElementTagNameMap[T]  {
+function isElement<T extends keyof HTMLElementTagNameMap>(element: Element, tag: T): element is HTMLElementTagNameMap[T]  {
     return element.tagName === tag.toUpperCase();
 }
 
@@ -98,36 +98,36 @@ export function apply(data: Thing, element: HTMLElement, options: ApplyOptions =
  * @see https://html.spec.whatwg.org/multipage/microdata.html#values
  */
 function applyAsString(data: string, element: HTMLElement, options: ApplyOptions): void {
-    if (isElement2(element, "meta")) {
+    if (isElement(element, "meta")) {
         element.content = data;
-    } else if (isElement2(element, "img") ||
-               isElement2(element, "audio") ||
-               isElement2(element, "embed") ||
-               isElement2(element, "iframe") ||
-               isElement2(element, "source") ||
-               isElement2(element, "track") ||
-               isElement2(element, "video")) {
+    } else if (isElement(element, "img") ||
+               isElement(element, "audio") ||
+               isElement(element, "embed") ||
+               isElement(element, "iframe") ||
+               isElement(element, "source") ||
+               isElement(element, "track") ||
+               isElement(element, "video")) {
         element.src = data;
-    } else if (isElement2(element, "a") ||
-               isElement2(element, "area") ||
-               isElement2(element, "link")) {
+    } else if (isElement(element, "a") ||
+               isElement(element, "area") ||
+               isElement(element, "link")) {
         element.href = data;
-        if (options.linkFormatter && isElement2(element, "a")) {
+        if (options.linkFormatter && isElement(element, "a")) {
             const text = options.linkFormatter(data, element.dataset);
             if (text) {
                 element.innerText = text;
             }
         }
-    } else if (isElement2(element, "object")) {
+    } else if (isElement(element, "object")) {
         element.data = data;
-    } else if (isElement2(element, "data")) {
+    } else if (isElement(element, "data")) {
         element.value = data;
         if (options.dataFormatter) {
             element.innerText = options.dataFormatter(data, element.dataset);
         }
-    } else if (isElement2(element, "meter")) {
+    } else if (isElement(element, "meter")) {
         element.value = parseInt(data);
-    } else if (isElement2(element, "time")) {
+    } else if (isElement(element, "time")) {
         element.dateTime = data;
         if (options.timeFormatter) {
             element.innerText = options.timeFormatter(data, element.dataset);
@@ -138,33 +138,33 @@ function applyAsString(data: string, element: HTMLElement, options: ApplyOptions
 }
 
 function getElementValue(element: Element): string | Element {
-    if (isElement2(element, "meta")) {
+    if (isElement(element, "meta")) {
         return element.content;
     }
-    if (isElement2(element, "img") ||
-               isElement2(element, "audio") ||
-               isElement2(element, "embed") ||
-               isElement2(element, "iframe") ||
-               isElement2(element, "source") ||
-               isElement2(element, "track") ||
-               isElement2(element, "video")) {
+    if (isElement(element, "img") ||
+               isElement(element, "audio") ||
+               isElement(element, "embed") ||
+               isElement(element, "iframe") ||
+               isElement(element, "source") ||
+               isElement(element, "track") ||
+               isElement(element, "video")) {
         return element.src;
     }
-    if (isElement2(element, "a") ||
-               isElement2(element, "area") ||
-               isElement2(element, "link")) {
+    if (isElement(element, "a") ||
+               isElement(element, "area") ||
+               isElement(element, "link")) {
         return element.href;
     }
-    if (isElement2(element, "object")) {
+    if (isElement(element, "object")) {
         return element.data;
     }
-    if (isElement2(element, "data")) {
+    if (isElement(element, "data")) {
         return element.value;
     }
-    if (isElement2(element, "meter")) {
+    if (isElement(element, "meter")) {
         return element.value.toString();
     }
-    if (isElement2(element, "time")) {
+    if (isElement(element, "time")) {
         return element.dateTime;
     }
     return element;
