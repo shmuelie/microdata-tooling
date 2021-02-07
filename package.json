@@ -39,5 +39,10 @@
     "main": "./dist/index.min.js",
     "types": "./dist/index.d.ts",
     "type": "module",
-    "homepage": "https://github.com/SamuelEnglard/microdata-tooling"
+    "homepage": "https://github.com/SamuelEnglard/microdata-tooling",
+    "keywords": [
+        "microdata",
+        "micro-data",
+        "schema.org"
+    ]
 }
