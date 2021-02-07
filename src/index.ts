@@ -8,5 +8,6 @@
     //return null;
 //}
 
+export { Thing } from './schema-simple.js'
 export { MicroJson, MicroJsonThing, jsonify } from './jsonify.js'
-export { apply, Thing, ApplyOptions } from './apply.js'
+export { apply, ApplyOptions } from './apply.js'

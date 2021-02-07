@@ -1,10 +1,5 @@
 import {isArray, isElement} from './utils.js'
-
-interface ThingBase {
-    "@type": string;
-}
-
-export type Thing = ThingBase | string;
+import {Thing} from './schema-simple.js'
 
 /**
  * Options for applying micro data.
