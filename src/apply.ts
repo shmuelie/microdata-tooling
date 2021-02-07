@@ -1,6 +1,6 @@
 import {isArray, isElement} from './utils.js'
 
-export interface ThingBase {
+interface ThingBase {
     "@type": string;
 }
 
