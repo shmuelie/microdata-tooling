@@ -1,6 +1,6 @@
 import assert from 'assert'
 import JSDOM from 'jsdom'
-import { jsonify } from '../dist/jsonify.js'
+import { jsonify } from '../dist/index.js'
 import fs from 'fs/promises'
 
 suite("microdata-tooling", function () {
