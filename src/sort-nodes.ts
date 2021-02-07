@@ -5,15 +5,28 @@
  *
  * @param nodes Array of nodes
  * @param [reverse=false] Need reverse order
+ * @internal
  */
 export function sortNodes(nodes: Element[], reverse = false): Element[] {
   return [...nodes].sort(reverse ? reverseCompareOrder : compareOrder);
 }
 
+/**
+ *
+ * @param a
+ * @param b
+ * @internal
+ */
 export function reverseCompareOrder(a: Element, b: Element): 1 | -1 | 0 {
   return (compareOrder(a, b) * -1) as 1 | -1 | 0;
 }
 
+/**
+ *
+ * @param a
+ * @param b
+ * @internal
+ */
 export function compareOrder(a: Element, b: Element): 1 | -1 | 0 {
   const posCompare = a.compareDocumentPosition(b);
 
