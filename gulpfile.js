@@ -13,8 +13,6 @@ const mainDest = "dist";
  */
 const configs = JSON.parse(fs.readFileSync("configurations.json").toString());
 
-
-
 /**
  * @type {string[]}
  */
@@ -39,7 +37,10 @@ for (const config of configs) {
     tsBuilds.push(tsName);
     const cleanName = "clean-" + config.target;
     gulp.task(cleanName, async function () {
-        const stat = await fsa.stat(config.dest).catch(err => {
+        /**
+         * @type {false | fs.Stats}
+         */
+        const stat = await fsa.stat(config.dest).catch(/** @param {NodeJS.ErrnoException | null} err */(err) => {
             if (err && err.code === "ENOENT") {
                 return false;
             }
