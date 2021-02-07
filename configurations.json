@@ -1,7 +1,23 @@
 [
     {
-        "target": "ES6",
-        "dest": "dist.es6"
+        "target": "ES2015",
+        "dest": "dist.es2015"
+    },
+    {
+        "target": "ES2016",
+        "dest": "dist.es2016"
+    },
+    {
+        "target": "ES2017",
+        "dest": "dist.es2017"
+    },
+    {
+        "target": "ES2018",
+        "dest": "dist.es2018"
+    },
+    {
+        "target": "ES2019",
+        "dest": "dist.es2019"
     },
     {
         "target": "ES2020",
