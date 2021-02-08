@@ -18,3 +18,7 @@ export function isArray<T>(obj: any): obj is T[] {
 export function isElement<T extends keyof HTMLElementTagNameMap>(element: Element, tag: T): element is HTMLElementTagNameMap[T]  {
     return element.tagName === tag.toUpperCase();
 }
+
+export function pushMany<T>(arr: T[], items: T[]): void {
+    arr.push.apply(arr, items);
+}

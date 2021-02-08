@@ -1,4 +1,4 @@
-import {isElement} from './utils.js'
+import {isElement,pushMany} from './utils.js'
 import {compareOrder} from './sort-nodes.js'
 
 export interface MicroJson {
@@ -80,7 +80,7 @@ function thePropertiesOfAnItem(root: Element): Element[] {
     const memory: Element[] = [];
     const pending: Element[] = [];
     memory.push(root);
-    pending.push.apply(pending, Array.from(root.children));
+    pushMany(pending, Array.from(root.children));
     if (root.hasAttribute("itemref")) {
         for (const refid of (root.getAttribute("itemref") as string).split(" ")) {
             const refElmt = root.querySelector("#" + refid);
