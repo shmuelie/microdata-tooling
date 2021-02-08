@@ -1,6 +1,11 @@
 import { Thing } from './schema-simple.js'
 import {pushMany} from './utils.js'
-import {jsonify} from './jsonify.js'
+import {jsonify, MicroJsonThing} from './jsonify.js'
+
+export interface ParseOptions {
+    skipOnMultiType?: boolean;
+    skipOnNoType?: boolean;
+}
 
 /**
  * Read micro data from an HTML element tree.
@@ -8,16 +13,61 @@ import {jsonify} from './jsonify.js'
  * @returns The parsed micro data.
  * @see https://html.spec.whatwg.org/multipage/microdata.html
  */
-export function parse(element: HTMLElement): Thing[] | null {
+export function parse(element: HTMLElement, options: ParseOptions = {}): Thing[] {
     const topLevel = findTopLevel(element);
     const jsoned = jsonify(topLevel);
-    if (jsoned.items.length === 0) {
-        return null;
-    }
     const things: Thing[] = [];
     for (const item of jsoned.items) {
-
+        const thing = parseMicroJsonThing(item, options);
+        if (thing !== null) {
+            things.push(thing);
+        }
     }
+    return things;
+}
+
+function parseMicroJsonThing(item: MicroJsonThing, options: ParseOptions): Thing | null {
+    if (typeof item.type === "undefined" || item.type.length == 0) {
+        if (options.skipOnNoType) {
+            return null;
+        }
+        throw new Error("No Type");
+    }
+    if (item.type.length > 1) {
+        if (options.skipOnMultiType) {
+            return null;
+        }
+        throw new Error("More than one Type");
+    }
+    const thing: Thing = {
+        "@type": item.type[0],
+        "identifier": item.id
+    };
+    for (const propertyName in item.properties) {
+        const propertyValues = item.properties[propertyName];
+        switch (propertyValues.length) {
+            case 0:
+                break;
+            case 1:
+                thing[propertyName] = getThing(propertyValues[0], options);
+                break;
+            default:
+                const arr: Thing[] = [];
+                for (const propertyValue of propertyValues) {
+                    const subThing = getThing(propertyValue, options);
+                    if (subThing !== null) {
+                        arr.push(subThing);
+                    }
+                }
+                thing[propertyName] = arr;
+                break;
+        }
+    }
+    return thing;
+}
+
+function getThing(propertyValue: string | MicroJsonThing, options: ParseOptions): Thing | null {
+    return typeof propertyValue === "string" ? propertyValue :  parseMicroJsonThing(propertyValue, options);
 }
 
 /**
