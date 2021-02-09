@@ -40,9 +40,11 @@ function parseMicroJsonThing(item: MicroJsonThing, options: ParseOptions): Thing
         throw new Error("More than one Type");
     }
     const thing: Thing = {
-        "@type": item.type[0],
-        "identifier": item.id
+        "@type": item.type[0]
     };
+    if (item.id) {
+        thing["identifier"] = item.id;
+    }
     for (const propertyName in item.properties) {
         const propertyValues = item.properties[propertyName];
         switch (propertyValues.length) {
