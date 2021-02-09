@@ -1,0 +1,28 @@
+[
+    {
+        "@type": "http://schema.org/BlogPosting",
+        "headline": "Progress report",
+        "datePublished": "2013-08-29",
+        "url": "https://blog.example.com/progress-report?comments=0",
+        "comment": [
+            {
+                "@type": "http://schema.org/UserComments",
+                "url": "https://blog.example.com/progress-report#c1",
+                "creator": {
+                    "@type": "http://schema.org/Person",
+                    "name": "Greg"
+                },
+                "commentTime": "2013-08-29"
+            },
+            {
+                "@type": "http://schema.org/UserComments",
+                "url": "https://blog.example.com/progress-report#c2",
+                "creator": {
+                    "@type": "http://schema.org/Person",
+                    "name": "Charlotte"
+                },
+                "commentTime": "2013-08-29"
+            }
+        ]
+    }
+]
