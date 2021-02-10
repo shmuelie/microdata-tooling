@@ -1,17 +1,19 @@
 import gulp from 'gulp'
-import ts from 'gulp-typescript'
-import sourcemaps from 'gulp-sourcemaps'
-import terser from 'gulp-terser'
 import merge from 'merge2'
 import rename from 'gulp-rename'
-import typedoc from 'gulp-typedoc'
 import rimraf from 'rimraf'
+import sourcemaps from 'gulp-sourcemaps'
+import terser from 'gulp-terser'
+import ts from 'gulp-typescript'
+import typedoc from 'gulp-typedoc'
 
 gulp.task("docs", function () {
-    return gulp.src("dist/*.d.ts").pipe(typedoc({
+    return gulp.src("src/index.ts").pipe(typedoc({
         out: "docs",
         excludeExternals: true,
-        includeDeclarations: true
+        excludePrivate: true,
+        excludeInternal: true,
+        entryPoints: ["src/index.ts"]
     }));
 });
 
