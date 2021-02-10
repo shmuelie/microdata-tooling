@@ -35,7 +35,8 @@
     "version": "0.2.0",
     "scripts": {
         "build": "gulp build",
-        "test": "mocha -u tdd"
+        "test": "mocha -u tdd",
+        "preinstall": "npx -y only-allow pnpm"
     },
     "main": "./dist/index.min.js",
     "types": "./dist/index.d.ts",
