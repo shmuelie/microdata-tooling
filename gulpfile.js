@@ -41,7 +41,7 @@ gulp.task("minify", function () {
 });
 
 gulp.task("clean", async function () {
-    rimraf("dist/*.*");
+    rimraf("dist/*.*", function ()  {});
 });
 
 gulp.task("build", gulp.series(["clean", "ts-build", "minify"]));
