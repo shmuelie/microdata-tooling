@@ -6,15 +6,31 @@ import del from 'del'
 import merge from 'merge2'
 import fs from 'fs'
 import fsa from 'fs/promises'
+import rename from 'gulp-rename'
 
 gulp.task("ts-build", function () {
     const tsProject = ts.createProject("tsconfig.json");
-    const result = tsProject.src().pipe(sourcemaps.init()).pipe(tsProject());
+    const result = tsProject.src().
+        pipe(sourcemaps.init()).
+        pipe(tsProject());
     return merge([
-        result.js.pipe(terser()).pipe(sourcemaps.write(".", { includeContent: false, sourceRoot: "../src" })).pipe(gulp.dest("dist")),
-        result.dts.pipe(gulp.dest("dist"))
+        result.js.
+            pipe(sourcemaps.write(".", { includeContent: false, sourceRoot: "../src" })).
+            pipe(gulp.dest("dist")),
+        result.dts.
+            pipe(gulp.dest("dist"))
     ]);
 });
+
+gulp.task("minify", function () {
+    return gulp.src("dist/*.js").
+        pipe(sourcemaps.init()).
+        pipe(terser()).
+        pipe(rename({ extname: ".min.js" })).
+        pipe(sourcemaps.write(".", { includeContent: false, sourceRoot: "." })).
+        pipe(gulp.dest("dist"));
+});
+
 gulp.task("clean", async function () {
     /**
      * @type {false | fs.Stats}
@@ -30,4 +46,4 @@ gulp.task("clean", async function () {
     }
 });
 
-gulp.task("build", gulp.series(["clean", "ts-build"]));
+gulp.task("build", gulp.series(["clean", "ts-build", "minify"]));
