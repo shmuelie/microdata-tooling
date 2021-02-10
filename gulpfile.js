@@ -4,7 +4,16 @@ import sourcemaps from 'gulp-sourcemaps'
 import terser from 'gulp-terser'
 import merge from 'merge2'
 import rename from 'gulp-rename'
+import typedoc from 'gulp-typedoc'
 import rimraf from 'rimraf'
+
+gulp.task("docs", function () {
+    return gulp.src("dist/*.d.ts").pipe(typedoc({
+        out: "docs",
+        excludeExternals: true,
+        includeDeclarations: true
+    }));
+});
 
 gulp.task("ts-build", function () {
     const tsProject = ts.createProject("tsconfig.json");
