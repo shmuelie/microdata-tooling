@@ -14,11 +14,16 @@ export interface MicroJsonThing {
 }
 
 /**
- * @summary Read micro data from an HTML element tree as specified in the standard.
- * @description Unlike with the spec, the returned value is an object model, not a JSON string.
- * @param nodes The elements to extract from.
+ * Read micro data from an HTML element tree as specified in the standard.
+ *
+ * @remarks
+ *
+ * Unlike with the spec, the returned value is an object model, not a JSON string.
+ *
+ * @param nodes - The elements to extract from.
  * @returns Extracted micro data.
- * @see https://html.spec.whatwg.org/multipage/microdata.html#json
+ *
+ * @see {@link https://html.spec.whatwg.org/multipage/microdata.html#json}
  */
 export function jsonify(nodes: Element[]): MicroJson {
     const result: MicroJson = {
@@ -36,7 +41,8 @@ export function jsonify(nodes: Element[]): MicroJson {
  *
  * @param item
  * @param memory
- * @see https://html.spec.whatwg.org/multipage/microdata.html#get-the-object
+ *
+ * @see {@link https://html.spec.whatwg.org/multipage/microdata.html#get-the-object}
  */
 function getTheObject(item: Element, memory: Element[] = []): MicroJsonThing {
     const result: MicroJsonThing = {
@@ -72,8 +78,10 @@ function getTheObject(item: Element, memory: Element[] = []): MicroJsonThing {
 
 /**
  * Find the properties of an item.
- * @param root The element that defines the item.
- * @see https://html.spec.whatwg.org/multipage/microdata.html#the-properties-of-an-item
+ *
+ * @param root - The element that defines the item.
+ *
+ * @see {@link https://html.spec.whatwg.org/multipage/microdata.html#the-properties-of-an-item}
  */
 function thePropertiesOfAnItem(root: Element): Element[] {
     const results: Element[] = [];

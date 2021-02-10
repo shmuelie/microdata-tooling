@@ -7,14 +7,26 @@ import {Thing} from './schema-simple.js'
 export interface ApplyOptions {
     /**
      * Format the text for a HyperLink.
+     *
+     * @remarks
+     *
+     * If not given or returns null, the content of the link is left alone.
      */
     linkFormatter?: (data: string, elementData: DOMStringMap) => string | null;
     /**
      * Format the text for a time element.
+     *
+     * @remarks
+     *
+     * If not given, the content of the time element is left alone.
      */
     timeFormatter?: (data: string, elementData: DOMStringMap) => string;
     /**
      * Format the text for a data element.
+     *
+     * @remarks
+     *
+     * If not given, the content of the data element is left alone.
      */
     dataFormatter?: (data: string, elementData: DOMStringMap) => string;
     /**
@@ -31,9 +43,13 @@ export interface ApplyOptions {
 /**
  * Get a property from an object.
  *
- * @description Helps keep type safety when trying to access property using indexing.
- * @param obj Object to get property of.
- * @param propertyName Name of property to get.
+ * @remarks
+ *
+ * Helps keep type safety when trying to access property using indexing.
+ *
+ * @param obj - Object to get property of.
+ * @param propertyName - Name of property to get.
+ * @returns The value of the named property if it exists; otherwise, null.
  */
 function getProperty<T>(obj: any, propertyName: string): T | null {
     if (propertyName in obj) {
@@ -44,9 +60,12 @@ function getProperty<T>(obj: any, propertyName: string): T | null {
 
 /**
  * Apply micro data to an HTML element tree.
- * @param data The micro data to apply.
- * @param element The root of the HTML element tree.
- * @see https://html.spec.whatwg.org/multipage/microdata.html
+ *
+ * @param data - The micro data to apply.
+ * @param element - The root of the HTML element tree.
+ * @param options - Optional options for applying data.
+ *
+ * @see {@link https://html.spec.whatwg.org/multipage/microdata.html}
  */
 export function apply(data: Thing, element: HTMLElement, options: ApplyOptions = {}): void {
     if (typeof data === "string") {
@@ -71,7 +90,8 @@ export function apply(data: Thing, element: HTMLElement, options: ApplyOptions =
  * @param data
  * @param element
  * @param options
- * @see https://html.spec.whatwg.org/multipage/microdata.html#values
+ *
+ * @see {@link https://html.spec.whatwg.org/multipage/microdata.html#values}
  */
 function applyAsString(data: string, element: HTMLElement, options: ApplyOptions): void {
     if (isElement(element, "meta")) {

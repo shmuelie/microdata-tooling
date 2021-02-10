@@ -9,9 +9,12 @@ export interface ParseOptions {
 
 /**
  * Read micro data from an HTML element tree.
- * @param element The root of the HTML element tree.
+ *
+ * @param element - The root of the HTML element tree.
+ * @param options - The options for parsing the tree.
  * @returns The parsed micro data.
- * @see https://html.spec.whatwg.org/multipage/microdata.html
+ *
+ * @see {@link https://html.spec.whatwg.org/multipage/microdata.html}
  */
 export function parse(element: HTMLElement, options: ParseOptions = {}): Thing[] {
     const topLevel = findTopLevel(element);
@@ -75,7 +78,7 @@ function getThing(propertyValue: string | MicroJsonThing, options: ParseOptions)
 /**
  *
  * @param element
- * @see https://html.spec.whatwg.org/multipage/microdata.html#top-level-microdata-items
+ * @see {@link https://html.spec.whatwg.org/multipage/microdata.html#top-level-microdata-items}
  */
 function findTopLevel(element: Element): Element[] {
     if (isTopLevel(element)) {
