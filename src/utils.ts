@@ -19,6 +19,12 @@ export function isElement<T extends keyof HTMLElementTagNameMap>(element: Elemen
     return element.tagName === tag.toUpperCase();
 }
 
+/**
+ *
+ * @param arr
+ * @param items
+ * @internal
+ */
 export function pushMany<T>(arr: T[], items: T[]): void {
     arr.push.apply(arr, items);
 }
