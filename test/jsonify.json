@@ -1,19 +1,19 @@
 {
     "items": [
       {
-        "type": [ "http://schema.org/BlogPosting" ],
+        "type": [ "https://schema.org/BlogPosting" ],
         "properties": {
           "headline": [ "Progress report" ],
           "datePublished": [ "2013-08-29" ],
           "url": [ "https://blog.example.com/progress-report?comments=0" ],
           "comment": [
             {
-              "type": [ "http://schema.org/UserComments" ],
+              "type": [ "https://schema.org/UserComments" ],
               "properties": {
                 "url": [ "https://blog.example.com/progress-report#c1" ],
                 "creator": [
                   {
-                    "type": [ "http://schema.org/Person" ],
+                    "type": [ "https://schema.org/Person" ],
                     "properties": {
                       "name": [ "Greg" ]
                     }
@@ -23,12 +23,12 @@
               }
             },
             {
-              "type": [ "http://schema.org/UserComments" ],
+              "type": [ "https://schema.org/UserComments" ],
               "properties": {
                 "url": [ "https://blog.example.com/progress-report#c2" ],
                 "creator": [
                   {
-                    "type": [ "http://schema.org/Person" ],
+                    "type": [ "https://schema.org/Person" ],
                     "properties": {
                       "name": [ "Charlotte" ]
                     }
