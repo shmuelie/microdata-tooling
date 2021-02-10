@@ -109,7 +109,7 @@ function applyAsString(data: string, element: HTMLElement, options: ApplyOptions
             element.innerText = options.timeFormatter(data, element.dataset);
         }
     } else {
-        element.innerText = data;
+        element.textContent = data;
     }
 }
 
