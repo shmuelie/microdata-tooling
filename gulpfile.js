@@ -2,11 +2,9 @@ import gulp from 'gulp'
 import ts from 'gulp-typescript'
 import sourcemaps from 'gulp-sourcemaps'
 import terser from 'gulp-terser'
-import del from 'del'
 import merge from 'merge2'
-import fs from 'fs'
-import fsa from 'fs/promises'
 import rename from 'gulp-rename'
+import rimraf from 'rimraf'
 
 gulp.task("ts-build", function () {
     const tsProject = ts.createProject("tsconfig.json");
@@ -32,18 +30,7 @@ gulp.task("minify", function () {
 });
 
 gulp.task("clean", async function () {
-    /**
-     * @type {false | fs.Stats}
-     */
-    const stat = await fsa.stat("dist").catch(/** @param {NodeJS.ErrnoException | null} err */(err) => {
-        if (err && err.code === "ENOENT") {
-            return false;
-        }
-        throw err;
-    });
-    if (stat && stat.isDirectory()) {
-        await del("dist/*.*");
-    }
+    rimraf("dist/*.*");
 });
 
 gulp.task("build", gulp.series(["clean", "ts-build", "minify"]));
