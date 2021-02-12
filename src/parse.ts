@@ -34,13 +34,13 @@ function parseMicroJsonThing(item: MicroJsonThing, options: ParseOptions): Thing
         if (options.skipOnNoType) {
             return null;
         }
-        throw new Error("No Type");
+        throw new NoTypeError("No Type");
     }
     if (item.type.length > 1) {
         if (options.skipOnMultiType) {
             return null;
         }
-        throw new Error("More than one Type");
+        throw new MultiTypeError("More than one Type");
     }
     const thing: Thing = {
         "@type": item.type[0]
