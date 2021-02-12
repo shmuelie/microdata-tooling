@@ -1,12 +1,12 @@
 // imported from https://github.com/megazazik/sort-nodes/tree/734c4eaa6b8f73b41f7f7b2148b1067068fb2f41
 
-/**
- * Sort nodes according to the HTML tree order
- *
- * @param nodes Array of nodes
- * @param [reverse=false] Need reverse order
- * @internal
- */
+ /**
+  * Sort nodes according to the HTML tree order
+  *
+  * @param nodes - Array of nodes.
+  * @param reverse - Need reverse order
+  * @internal
+  */
 export function sortNodes(nodes: Element[], reverse = false): Element[] {
   return [...nodes].sort(reverse ? reverseCompareOrder : compareOrder);
 }

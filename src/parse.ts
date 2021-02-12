@@ -1,9 +1,19 @@
 import { Thing } from './schema-simple.js'
 import {pushMany} from './utils.js'
 import {jsonify, MicroJsonThing} from './jsonify.js'
+import { MultiTypeError, NoTypeError } from './errors.js'
 
+/**
+ * Options for parsing micro data.
+ */
 export interface ParseOptions {
+    /**
+     * If true, items with more than one type are just skipped; otherwise a {@link MultiTypeError} is thrown.
+     */
     skipOnMultiType?: boolean;
+    /**
+     * If true, items with no type are just skipped; otherwise a {@link NoTypeError} is thrown.
+     */
     skipOnNoType?: boolean;
 }
 
@@ -13,6 +23,14 @@ export interface ParseOptions {
  * @param element - The root of the HTML element tree.
  * @param options - The options for parsing the tree.
  * @returns The parsed micro data.
+ *
+ * @throws {@link NoTypeError}
+ *
+ * An item has no type.
+ *
+ * @throws {@link MultiTypeError}
+ *
+ * An item has more than one type.
  *
  * @see {@link https://html.spec.whatwg.org/multipage/microdata.html}
  */

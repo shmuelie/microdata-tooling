@@ -35,6 +35,10 @@ export interface ApplyOptions {
     typeHelpers?: {
         /**
          * Map from type to special handler.
+         *
+         * @remarks
+         *
+         * If the method returns false, then the properties of the item still go through the usual logic.
          */
         [t: string]: (data: Thing, element: HTMLElement) => boolean;
     };
@@ -61,6 +65,15 @@ function getProperty<T>(obj: any, propertyName: string): T | null {
 /**
  * Apply micro data to an HTML element tree.
  *
+ * @remarks
+ *
+ * Generally, if a value is a string it will be set as the text for an element
+ * and if an object it will recurse on the properties. To support values is an
+ * array,
+ * {@linkcode https://developer.mozilla.org/en-US/docs/Web/API/HTMLTemplateElement | HTMLTemplateElement}s
+ * are used. Each item in the array looks for a template with an attribute
+ * `data-type` that matches the type. Strings look for a type of `Text`.
+ *
  * @param data - The micro data to apply.
  * @param element - The root of the HTML element tree.
  * @param options - Optional options for applying data.
@@ -86,10 +99,11 @@ export function apply(data: Thing, element: HTMLElement, options: ApplyOptions =
 }
 
 /**
+ * Set string data to a {@linkcode https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement | HTMLElement}.
  *
- * @param data
- * @param element
- * @param options
+ * @param data - The text data to set.
+ * @param element - The {@linkcode https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement | HTMLElement} to set the data on.
+ * @param options - Optional options for apply data.
  *
  * @see {@link https://html.spec.whatwg.org/multipage/microdata.html#values}
  */
