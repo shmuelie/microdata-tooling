@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ParseOptions | microdata-tooling</title>
+	<title>NoTypeError | microdata-tooling</title>
 	<meta name="description" content="Documentation for microdata-tooling">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -53,10 +53,10 @@
 					<a href="../modules.html">microdata-tooling</a>
 				</li>
 				<li>
-					<a href="parseoptions.html">ParseOptions</a>
+					<a href="notypeerror.html">NoTypeError</a>
 				</li>
 			</ul>
-			<h1>Interface ParseOptions</h1>
+			<h1>Class NoTypeError</h1>
 		</div>
 	</div>
 </header>
@@ -66,7 +66,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Options for parsing micro data.</p>
+						<p><a href="notypeerror.html">NoTypeError</a> is thrown when <a href="../modules.html#parse">parse</a> encounters an item with no
+						type.</p>
 					</div>
 				</div>
 			</section>
@@ -74,7 +75,12 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ParseOptions</span>
+						<span class="tsd-signature-type">Error</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">NoTypeError</span>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</section>
@@ -83,46 +89,46 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Properties</h3>
+							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="parseoptions.html#skiponmultitype" class="tsd-kind-icon">skip<wbr>OnMulti<wbr>Type</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="parseoptions.html#skiponnotype" class="tsd-kind-icon">skip<wbr>OnNo<wbr>Type</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="notypeerror.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="skiponmultitype" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> skip<wbr>OnMulti<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">skip<wbr>OnMulti<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/SamuelEnglard/microdata-tooling/blob/de24228/src/parse.ts#L13">parse.ts:13</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>If true, items with more than one type are just skipped; otherwise a <a href="../classes/multitypeerror.html">MultiTypeError</a> is thrown.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="skiponnotype" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> skip<wbr>OnNo<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">skip<wbr>OnNo<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/SamuelEnglard/microdata-tooling/blob/de24228/src/parse.ts#L17">parse.ts:17</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>If true, items with no type are just skipped; otherwise a <a href="../classes/notypeerror.html">NoTypeError</a> is thrown.</p>
-						</div>
-					</div>
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>NoType<wbr>Error<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="notypeerror.html" class="tsd-signature-type" data-tsd-kind="Class">NoTypeError</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in errors.ts:5</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create a new <a href="notypeerror.html">NoTypeError</a> object.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> message: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A human-readable description of the error.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="notypeerror.html" class="tsd-signature-type" data-tsd-kind="Class">NoTypeError</a></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -137,35 +143,32 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class">
-						<a href="../classes/multitypeerror.html" class="tsd-kind-icon">Multi<wbr>Type<wbr>Error</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/notypeerror.html" class="tsd-kind-icon">No<wbr>Type<wbr>Error</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="applyoptions.html" class="tsd-kind-icon">Apply<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="microjson.html" class="tsd-kind-icon">Micro<wbr>Json</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="microjsonthing.html" class="tsd-kind-icon">Micro<wbr>Json<wbr>Thing</a>
+						<a href="multitypeerror.html" class="tsd-kind-icon">Multi<wbr>Type<wbr>Error</a>
 					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface">
-						<a href="parseoptions.html" class="tsd-kind-icon">Parse<wbr>Options</a>
+					<li class="current tsd-kind-class">
+						<a href="notypeerror.html" class="tsd-kind-icon">No<wbr>Type<wbr>Error</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="parseoptions.html#skiponmultitype" class="tsd-kind-icon">skip<wbr>OnMulti<wbr>Type</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="parseoptions.html#skiponnotype" class="tsd-kind-icon">skip<wbr>OnNo<wbr>Type</a>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="notypeerror.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/applyoptions.html" class="tsd-kind-icon">Apply<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/microjson.html" class="tsd-kind-icon">Micro<wbr>Json</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/microjsonthing.html" class="tsd-kind-icon">Micro<wbr>Json<wbr>Thing</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/parseoptions.html" class="tsd-kind-icon">Parse<wbr>Options</a>
+					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="../modules.html#thing" class="tsd-kind-icon">Thing</a>
 					</li>

@@ -60,6 +60,13 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Classes</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-class"><a href="classes/multitypeerror.html" class="tsd-kind-icon">Multi<wbr>Type<wbr>Error</a></li>
+								<li class="tsd-kind-class"><a href="classes/notypeerror.html" class="tsd-kind-icon">No<wbr>Type<wbr>Error</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-interface"><a href="interfaces/applyoptions.html" class="tsd-kind-icon">Apply<wbr>Options</a></li>
@@ -93,7 +100,7 @@
 					<div class="tsd-signature tsd-kind-icon">Thing<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ThingBase</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/SamuelEnglard/microdata-tooling/blob/6bdf240/src/schema-simple.ts#L6">schema-simple.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/SamuelEnglard/microdata-tooling/blob/de24228/src/schema-simple.ts#L6">schema-simple.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -110,7 +117,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/SamuelEnglard/microdata-tooling/blob/6bdf240/src/apply.ts#L70">apply.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/SamuelEnglard/microdata-tooling/blob/de24228/src/apply.ts#L83">apply.ts:83</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -118,6 +125,14 @@
 									<p>Apply micro data to an HTML element tree.</p>
 								</div>
 								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>Generally, if a value is a string it will be set as the text for an element
+											and if an object it will recurse on the properties. To support values is an
+											array,
+											<a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLTemplateElement" class="external"><code>HTMLTemplateElement</code></a>s
+											are used. Each item in the array looks for a template with an attribute
+										<code>data-type</code> that matches the type. Strings look for a type of <code>Text</code>.</p>
+									</dd>
 									<dt>see</dt>
 									<dd><p><a href="https://html.spec.whatwg.org/multipage/microdata.html" class="external">https://html.spec.whatwg.org/multipage/microdata.html</a></p>
 									</dd>
@@ -158,7 +173,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/SamuelEnglard/microdata-tooling/blob/6bdf240/src/jsonify.ts#L28">jsonify.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/SamuelEnglard/microdata-tooling/blob/de24228/src/jsonify.ts#L28">jsonify.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -198,7 +213,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/SamuelEnglard/microdata-tooling/blob/6bdf240/src/parse.ts#L19">parse.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/SamuelEnglard/microdata-tooling/blob/de24228/src/parse.ts#L37">parse.ts:37</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -206,6 +221,14 @@
 									<p>Read micro data from an HTML element tree.</p>
 								</div>
 								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p><a href="classes/notypeerror.html">NoTypeError</a></p>
+										<p>An item has no type.</p>
+									</dd>
+									<dt>throws</dt>
+									<dd><p><a href="classes/multitypeerror.html">MultiTypeError</a></p>
+										<p>An item has more than one type.</p>
+									</dd>
 									<dt>see</dt>
 									<dd><p><a href="https://html.spec.whatwg.org/multipage/microdata.html" class="external">https://html.spec.whatwg.org/multipage/microdata.html</a></p>
 									</dd>
@@ -243,6 +266,12 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class">
+						<a href="classes/multitypeerror.html" class="tsd-kind-icon">Multi<wbr>Type<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/notypeerror.html" class="tsd-kind-icon">No<wbr>Type<wbr>Error</a>
+					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/applyoptions.html" class="tsd-kind-icon">Apply<wbr>Options</a>
 					</li>
@@ -278,6 +307,9 @@
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
 			</ul>
 		</div>
 	</div>
