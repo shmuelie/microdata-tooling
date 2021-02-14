@@ -17,6 +17,7 @@ devDependencies:
   terser: 5.5.1
   typedoc: 0.20.23_typescript@4.1.3
   typescript: 4.1.3
+  vinyl-map2: 1.2.1
 lockfileVersion: 5.2
 packages:
   /@gulp-sourcemaps/identity-map/1.0.2:
@@ -402,6 +403,13 @@ packages:
     optional: true
     resolution:
       integrity: sha512-p2q/t/mhvuOj/UeLlV6566GD/guowlr0hHxClI0W9m7MWYkL1F0hLo+0Aexs9HSPCtR1SXQ0TD3MMKrXZajbiQ==
+  /bl/1.2.3:
+    dependencies:
+      readable-stream: 2.3.7
+      safe-buffer: 5.2.1
+    dev: true
+    resolution:
+      integrity: sha512-pvcNpa0UU69UT341rO6AYy4FVAIkUHuZXRIWbq+zHnsVcRzDDjIAhGuuYoi0d//cwIwtt4pkpKycWEfjdV+vww==
   /brace-expansion/1.1.11:
     dependencies:
       balanced-match: 1.0.0
@@ -803,7 +811,7 @@ packages:
       integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==
   /debug/4.1.1:
     dependencies:
-      ms: 2.1.2
+      ms: 2.1.3
     deprecated: Debug versions >=3.2.0 <3.2.7 || >=4 <4.3.1 have a low-severity ReDos regression when used in a Node.js environment. It is recommended you upgrade to 3.2.7 or 4.3.1. (https://github.com/visionmedia/debug/issues/797)
     dev: true
     resolution:
@@ -2730,6 +2738,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
+  /new-from/0.0.3:
+    dependencies:
+      readable-stream: 1.1.14
+    dev: true
+    resolution:
+      integrity: sha1-HErRNhPePhXWMhtw7Vwjk36iXmc=
   /next-tick/1.0.0:
     dev: true
     resolution:
@@ -3255,6 +3269,15 @@ packages:
     dev: true
     resolution:
       integrity: sha1-Elgg40vIQtLyqq+v5MKRbuMsFXw=
+  /readable-stream/1.1.14:
+    dependencies:
+      core-util-is: 1.0.2
+      inherits: 2.0.4
+      isarray: 0.0.1
+      string_decoder: 0.10.31
+    dev: true
+    resolution:
+      integrity: sha1-fPTFTvZI44EwhMY23SB54WbAgdk=
   /readable-stream/2.3.7:
     dependencies:
       core-util-is: 1.0.2
@@ -4279,6 +4302,14 @@ packages:
       node: '>= 0.10'
     resolution:
       integrity: sha512-vIu34EkyNyJxmP0jscNzWBSygh7VWhqun6RmqVfXePrOwi9lhvRs//dOaGOTRUQr4tx7/zd26Tk5WeSVZitgng==
+  /vinyl-map2/1.2.1:
+    dependencies:
+      bl: 1.2.3
+      new-from: 0.0.3
+      through2: 2.0.5
+    dev: true
+    resolution:
+      integrity: sha1-vfcPlu+ub0cBX6p/FFMBOzqViT4=
   /vinyl-sourcemap/1.1.0:
     dependencies:
       append-buffer: 1.0.2
@@ -4590,3 +4621,4 @@ specifiers:
   terser: 5.5.1
   typedoc: 0.20.23
   typescript: 4.1.3
+  vinyl-map2: 1.2.1
