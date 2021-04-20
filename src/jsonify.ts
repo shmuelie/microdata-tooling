@@ -14,7 +14,7 @@ export interface MicroJsonThing {
 }
 
 /**
- * Read micro data from an HTML element tree as specified in the standard.
+ * Read micro data from a HTML element tree as specified in the standard.
  *
  * @remarks
  *

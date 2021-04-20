@@ -31,6 +31,10 @@ export interface ApplyOptions {
     dataFormatter?: (data: string, elementData: DOMStringMap) => string;
     /**
      * Methods that allow for special handling for types.
+     *
+     * @remarks
+     *
+     * If a method returns false, then the properties of the item still go through the usual logic.
      */
     typeHelpers?: {
         /**
@@ -68,8 +72,8 @@ function getProperty<T>(obj: any, propertyName: string): T | null {
  * @remarks
  *
  * Generally, if a value is a string it will be set as the text for an element
- * and if an object it will recurse on the properties. To support values is an
- * array,
+ * and if an object it will recurse on the properties. To support values that
+ * are an array,
  * {@linkcode https://developer.mozilla.org/en-US/docs/Web/API/HTMLTemplateElement | HTMLTemplateElement}s
  * are used. Each item in the array looks for a template with an attribute
  * `data-type` that matches the type. Strings look for a type of `Text`.
