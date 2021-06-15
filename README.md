@@ -2,8 +2,8 @@
 
 [![View this project on NPM](https://img.shields.io/npm/v/microdata-tooling.svg)](https://www.npmjs.com/package/microdata-tooling)
 ![NPM Version](https://img.shields.io/npm/dm/microdata-tooling.svg)
-![Issues Count](https://img.shields.io/github/issues/samuelenglard/microdata-tooling)
-![License](https://img.shields.io/github/license/samuelenglard/microdata-tooling)
+![Issues Count](https://img.shields.io/github/issues/shmuelie/microdata-tooling)
+![License](https://img.shields.io/github/license/shmuelie/microdata-tooling)
 ![Type Definitions](https://img.shields.io/npm/types/microdata-tooling)
 
 Provides tooling to help using [micro data](https://html.spec.whatwg.org/multipage/microdata.html) from TypeScript/JavaScript.
